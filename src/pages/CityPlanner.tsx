@@ -89,7 +89,7 @@ const CityPlanner = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            City Planner Dashboard
+            City Authority Dashboard
           </h1>
           <p className="text-muted-foreground">
             Real-time oversight of Sydney's responsive urban grid
@@ -142,9 +142,9 @@ const CityPlanner = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid lg:grid-cols-1 gap-6 mb-8">
           {/* Interactive Map */}
-          <Card className="lg:col-span-2 shadow-card">
+          <Card className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
@@ -249,47 +249,7 @@ const CityPlanner = () => {
             </CardContent>
           </Card>
 
-          {/* Actions Panel */}
-          <Card className="shadow-card">
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>
-                Strategic tools and simulations
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button 
-                className="w-full justify-start" 
-                variant="outline"
-                disabled={stormProtocolActive}
-              >
-                <Play className="w-4 h-4 mr-2" />
-                Run Simulation
-              </Button>
-              
-              <Button className="w-full justify-start" variant="outline">
-                <BarChart3 className="w-4 h-4 mr-2" />
-                Financial Analysis
-              </Button>
-              
-              <Button className="w-full justify-start" variant="outline">
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Impact Forecast
-              </Button>
 
-              {stormProtocolActive && (
-                <div className="mt-6 p-4 bg-success/10 border border-success/20 rounded-lg">
-                  <div className="flex items-center gap-2 mb-2">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                    <span className="text-sm font-medium">Protocol Active</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Storm preparation measures are being executed automatically across the city.
-                  </p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
         </div>
 
         {/* Analytics Cards */}

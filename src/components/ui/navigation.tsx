@@ -21,7 +21,7 @@ const Navigation = () => {
       description: "Platform overview" 
     },
     { 
-      label: "City Planner", 
+      label: "City Authority", 
       href: "/city-planner", 
       icon: Leaf,
       description: "City-wide dashboard" 
