@@ -37,7 +37,7 @@ const Landing = () => {
     {
       icon: Droplets,
       title: "Water Management",
-      description: "Predictive flood prevention and optimized resource distribution"
+      description: "Optimized water harvesting and aquifer recharge"
     },
     {
       icon: Recycle,
@@ -53,33 +53,24 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-gradient-surface">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-20 pb-3 px-4">
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-hero bg-clip-text text-transparent">
               Bioscape
             </h1>
-            <p className="text-xl md:text-2xl text-foreground mb-4">
+            <p className="text-xl md:text-2xl text-foreground mb-3">
               Ecological Urban Planning
             </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
               Transforming urban infrastructure into sustainable, nature-integrated communities 
               through smart technology and ecological design principles.
             </p>
-            <div className="flex justify-center">
-              <Link to="/city-planner">
-                <Button size="lg" className="shadow-glow">
-                  Explore Platform
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Solution Features */}
-      <section className="py-16 px-4">
+      <section className="py-12 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">Integrated Solutions</h2>
@@ -110,7 +101,7 @@ const Landing = () => {
       </section>
 
       {/* Services We Offer */}
-      <section className="py-16 px-4 bg-card/50">
+      <section className="py-12 px-4 bg-card/50">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">Services We Offer</h2>
