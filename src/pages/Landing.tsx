@@ -13,10 +13,10 @@ const Landing = () => {
       color: "bg-gradient-primary"
     },
     {
-      title: "Service Partner Platform", 
+      title: "Gig Worker Platform", 
       description: "Dynamic job marketplace connecting gig workers with essential infrastructure tasks",
       icon: Users,
-      href: "/service-partner",
+              href: "/gig-worker",
       color: "bg-gradient-secondary"
     },
     {
@@ -115,7 +115,7 @@ const Landing = () => {
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">Services We Offer</h2>
             <p className="text-lg text-muted-foreground">
-              Experience how Bioscape connects city planners, service partners, 
+              Experience how Bioscape connects city planners, gig workers, 
               and residents in a unified ecosystem.
             </p>
           </div>

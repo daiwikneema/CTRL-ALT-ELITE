@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Landing from "./pages/Landing";
 import CityPlanner from "./pages/CityPlanner";
-import ServicePartner from "./pages/ServicePartner";
+import GigWorker from "./pages/GigWorker";
 import Resident from "./pages/Resident";
 import NotFound from "./pages/NotFound";
 
@@ -22,7 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/city-planner" element={<CityPlanner />} />
-          <Route path="/service-partner" element={<ServicePartner />} />
+          <Route path="/gig-worker" element={<GigWorker />} />
           <Route path="/resident" element={<Resident />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

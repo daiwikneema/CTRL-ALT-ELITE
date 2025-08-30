@@ -123,7 +123,7 @@ const CityPlanner = () => {
           <MetricCard
             title="Active Jobs"
             value={stormProtocolActive ? "92" : "17"}
-            subtitle="Service partners deployed"
+            subtitle="Gig workers deployed"
             icon={<Users className="w-4 h-4" />}
             trend={stormProtocolActive ? "up" : "neutral"}
             trendValue={stormProtocolActive ? "+75" : "5 pending"}

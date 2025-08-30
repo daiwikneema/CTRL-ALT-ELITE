@@ -27,8 +27,8 @@ const Navigation = () => {
       description: "City-wide dashboard" 
     },
     { 
-      label: "Service Partner", 
-      href: "/service-partner", 
+      label: "Gig Worker", 
+      href: "/gig-worker", 
       icon: Users,
       description: "Job marketplace" 
     },

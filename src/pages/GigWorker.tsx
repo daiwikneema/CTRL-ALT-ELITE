@@ -121,7 +121,7 @@ const ServicePartner = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            Service Partner Dashboard
+            Gig Worker Dashboard
           </h1>
           <p className="text-muted-foreground">
             Find meaningful work that helps build Sydney's resilient future
