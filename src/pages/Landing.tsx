@@ -7,7 +7,7 @@ const Landing = () => {
   const dashboards = [
     {
       title: "City Authority Dashboard",
-      description: "Ecological infrastructure planning with environmental impact assessment and green space optimization",
+      description: "Request and share waste materials for repurposing, and monitor the city’s economic and environmental performance through green initiatives.",
       icon: MapPin,
       href: "/city-planner",
       color: "bg-gradient-primary"
@@ -21,7 +21,7 @@ const Landing = () => {
     },
     {
       title: "Resident Dashboard",
-      description: "Personal sustainability tracking with community green initiatives and environmental impact monitoring",
+      description: "Manage your energy and water smartly, share excess resources with neighbors, and track your real-world environmental impact.",
       icon: BarChart3,
       href: "/resident", 
       color: "bg-gradient-accent"
