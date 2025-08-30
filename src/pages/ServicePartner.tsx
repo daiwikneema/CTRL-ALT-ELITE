@@ -22,7 +22,7 @@ interface Job {
   id: string;
   title: string;
   location: string;
-  coordinates: [number, number]; // [longitude, latitude]
+  coordinates: [number, number]; 
   priority: "high" | "medium" | "low";
   payment: number;
   duration: string;
@@ -39,7 +39,7 @@ const ServicePartner = () => {
       id: "1",
       title: "Clear Rain Garden Inlet - Enmore Park",
       location: "Enmore",
-      coordinates: [151.1782, -33.8985], // Enmore coordinates
+      coordinates: [151.1782, -33.8985],
       priority: "high",
       payment: 20,
       duration: "30 mins",
@@ -50,7 +50,7 @@ const ServicePartner = () => {
       id: "2", 
       title: "Check Community Battery Status",
       location: "Newtown",
-      coordinates: [151.1795, -33.8968], // Newtown coordinates
+      coordinates: [151.1795, -33.8968],
       priority: "high", 
       payment: 35,
       duration: "45 mins",
@@ -61,7 +61,7 @@ const ServicePartner = () => {
       id: "3",
       title: "Stormwater Drain Inspection",
       location: "Glebe",
-      coordinates: [151.1869, -33.8792], // Glebe coordinates
+      coordinates: [151.1869, -33.8792],
       priority: "high",
       payment: 25,
       duration: "20 mins", 
@@ -72,7 +72,7 @@ const ServicePartner = () => {
       id: "4",
       title: "Solar Panel Cleaning",
       location: "Surry Hills",
-      coordinates: [151.2099, -33.8886], // Surry Hills coordinates
+      coordinates: [151.2099, -33.8886],
       priority: "medium",
       payment: 40,
       duration: "1 hour",
@@ -83,7 +83,7 @@ const ServicePartner = () => {
       id: "5",
       title: "E-bike Rebalancing",
       location: "CBD",
-      coordinates: [151.2093, -33.8688], // Sydney CBD coordinates
+      coordinates: [151.2093, -33.8688],
       priority: "medium",
       payment: 15,
       duration: "15 mins",
@@ -251,19 +251,84 @@ const ServicePartner = () => {
                   ))}
                 </div>
               ) : (
-                <InteractiveMap
-                  jobs={jobs.map(job => ({
-                    id: job.id,
-                    title: job.title,
-                    location: job.location,
-                    coordinates: job.coordinates,
-                    priority: job.priority,
-                    payment: job.payment,
-                    category: job.category,
-                  }))}
-                  onJobClick={handleClaimJob}
-                  className="h-96"
-                />
+                <div className="relative h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg border border-border overflow-hidden">
+                  {/* Dummy Job Map */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50">
+                    {/* Sydney CBD */}
+                    <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-20 h-12 bg-gray-300 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-medium text-gray-600">CBD</span>
+                    </div>
+                    
+                    {}
+                    {}
+                    <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-destructive rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                      <Droplets className="w-2 h-2 text-white" />
+                    </div>
+                    
+                    {}
+                    <div className="absolute top-1/2 left-1/3 w-4 h-4 bg-destructive rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                      <Zap className="w-2 h-2 text-white" />
+                    </div>
+                    
+                    {}
+                    <div className="absolute bottom-1/3 left-2/3 w-4 h-4 bg-destructive rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                      <Droplets className="w-2 h-2 text-white" />
+                    </div>
+                    
+                    {}
+                    <div className="absolute top-2/3 right-1/3 w-4 h-4 bg-warning rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                      <Zap className="w-2 h-2 text-white" />
+                    </div>
+                    
+                    {}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-warning rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                      <Users className="w-2 h-2 text-white" />
+                    </div>
+                    
+                    {}
+                    <div className="absolute top-1/6 right-1/4 w-3 h-3 bg-muted-foreground rounded-full"></div>
+                    <div className="absolute bottom-1/4 left-1/6 w-3 h-3 bg-muted-foreground rounded-full"></div>
+                    <div className="absolute top-3/4 right-1/6 w-3 h-3 bg-muted-foreground rounded-full"></div>
+                    
+                    {}
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="w-full h-px bg-gray-300 absolute top-1/4"></div>
+                      <div className="w-full h-px bg-gray-300 absolute top-1/2"></div>
+                      <div className="w-full h-px bg-gray-300 absolute top-3/4"></div>
+                      <div className="h-full w-px bg-gray-300 absolute left-1/4"></div>
+                      <div className="h-full w-px bg-gray-300 absolute left-1/2"></div>
+                      <div className="h-full w-px bg-gray-300 absolute left-3/4"></div>
+                    </div>
+                  </div>
+                  
+                  {}
+                  <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg">
+                    <div className="font-medium mb-2">Job Priorities</div>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 bg-destructive rounded-full"></div>
+                        <span>High Priority</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 bg-warning rounded-full"></div>
+                        <span>Medium Priority</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 bg-muted-foreground rounded-full"></div>
+                        <span>Low Priority</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {}
+                  <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                    <div className="text-sm font-medium text-foreground">Available Jobs</div>
+                    <div className="text-2xl font-bold text-primary">24</div>
+                    <div className="text-xs text-muted-foreground">
+                      {jobs.filter(job => job.priority === 'high').length} high priority
+                    </div>
+                  </div>
+                </div>
               )}
             </CardContent>
           </Card>

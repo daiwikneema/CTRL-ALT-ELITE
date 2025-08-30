@@ -121,35 +121,73 @@ const CityPlanner = () => {
             </CardHeader>
             <CardContent>
               <div className="relative h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg border border-border overflow-hidden">
-                {/* Mock Map Interface */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-                
-                {/* Map Markers */}
-                <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-success rounded-full animate-pulse shadow-glow"></div>
-                <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-accent rounded-full animate-pulse"></div>
-                <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-                
-                {stormProtocolActive && (
-                  <>
-                    <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-warning rounded-full animate-ping"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-4 h-4 bg-warning rounded-full animate-ping"></div>
-                    <div className="absolute top-2/3 left-2/3 w-4 h-4 bg-warning rounded-full animate-ping"></div>
-                  </>
-                )}
+                {/* Dummy Map Image */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50">
+                  {/* Sydney Harbor Bridge */}
+                  <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gray-400 rounded-full"></div>
+                  
+                  {/* CBD Area */}
+                  <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-24 h-16 bg-gray-300 rounded-lg flex items-center justify-center">
+                    <span className="text-xs font-medium text-gray-600">CBD</span>
+                  </div>
+                  
+                  {/* Solar Farms */}
+                  <div className="absolute top-1/6 left-1/4 w-8 h-8 bg-yellow-300 rounded-full flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-yellow-600" />
+                  </div>
+                  <div className="absolute top-1/5 right-1/4 w-8 h-8 bg-yellow-300 rounded-full flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-yellow-600" />
+                  </div>
+                  
+                  {/* Water Storage Tanks */}
+                  <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-300 rounded-full flex items-center justify-center">
+                    <Droplets className="w-3 h-3 text-blue-600" />
+                  </div>
+                  <div className="absolute bottom-1/4 right-1/3 w-6 h-6 bg-blue-300 rounded-full flex items-center justify-center">
+                    <Droplets className="w-3 h-3 text-blue-600" />
+                  </div>
+                  
+                  {/* Community Hubs */}
+                  <div className="absolute top-2/3 left-1/4 w-6 h-6 bg-green-300 rounded-full flex items-center justify-center">
+                    <Users className="w-3 h-3 text-green-600" />
+                  </div>
+                  <div className="absolute top-3/4 right-1/4 w-6 h-6 bg-green-300 rounded-full flex items-center justify-center">
+                    <Users className="w-3 h-3 text-green-600" />
+                  </div>
+                  
+                  {/* Storm Prep Indicators */}
+                  {stormProtocolActive && (
+                    <>
+                      <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-warning rounded-full animate-ping"></div>
+                      <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-warning rounded-full animate-ping"></div>
+                      <div className="absolute top-2/3 left-2/3 w-4 h-4 bg-warning rounded-full animate-ping"></div>
+                    </>
+                  )}
+                  
+                  {/* Grid Lines */}
+                  <div className="absolute inset-0 opacity-20">
+                    <div className="w-full h-px bg-gray-300 absolute top-1/4"></div>
+                    <div className="w-full h-px bg-gray-300 absolute top-1/2"></div>
+                    <div className="w-full h-px bg-gray-300 absolute top-3/4"></div>
+                    <div className="h-full w-px bg-gray-300 absolute left-1/4"></div>
+                    <div className="h-full w-px bg-gray-300 absolute left-1/2"></div>
+                    <div className="h-full w-px bg-gray-300 absolute left-3/4"></div>
+                  </div>
+                </div>
                 
                 {/* Map Legend */}
-                <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 text-xs">
+                <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-success rounded-full"></div>
+                      <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
                       <span>Solar Generation</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                      <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
                       <span>Water Storage</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-300 rounded-full"></div>
                       <span>Community Hubs</span>
                     </div>
                     {stormProtocolActive && (
@@ -162,7 +200,7 @@ const CityPlanner = () => {
                 </div>
 
                 {/* Status Overlay */}
-                <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-lg p-3">
+                <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
                   <div className="text-sm font-medium text-foreground">Live Status</div>
                   <div className="text-xs text-muted-foreground">
                     {stormProtocolActive ? "Storm Protocol Active" : "Normal Operations"}
