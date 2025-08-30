@@ -58,14 +58,14 @@ const Landing = () => {
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
-              AuraGrid
+              Bioscape
             </h1>
             <p className="text-xl md:text-2xl text-foreground mb-4">
-              The Responsive Urban Grid
+              Ecological Urban Planning
             </p>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Transforming Sydney's infrastructure into a responsive, decentralized, and 
-              community-powered network through smart technology and local engagement.
+              Transforming urban infrastructure into sustainable, nature-integrated communities 
+              through smart technology and ecological design principles.
             </p>
             <div className="flex justify-center">
               <Link to="/city-planner">
@@ -115,7 +115,7 @@ const Landing = () => {
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">Services We Offer</h2>
             <p className="text-lg text-muted-foreground">
-              Experience how AuraGrid connects city planners, service partners, 
+              Experience how Bioscape connects city planners, service partners, 
               and residents in a unified ecosystem.
             </p>
           </div>

@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none"><rect width="1200" height="1200" fill="#EAEAEA" rx="3"/><g opacity=".5"><g opacity=".5"><path fill="#FAFAFA" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/></g><path stroke="url(#a)" stroke-width="2.418" d="M0-1.209h553.581" transform="scale(1 -1) rotate(45 1163.11 91.165)"/><path stroke="url(#b)" stroke-width="2.418" d="M404.846 598.671h391.726"/><path stroke="url(#c)" stroke-width="2.418" d="M599.5 795.742V404.017"/><path stroke="url(#d)" stroke-width="2.418" d="m795.717 796.597-391.441-391.44"/><path fill="#fff" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/><g clip-path="url(#e)"><path fill="#666" fill-rule="evenodd" d="M616.426 586.58h-31.434v16.176l3.553-3.554.531-.531h9.068l.074-.074 8.463-8.463h2.565l7.18 7.181V586.58Zm-15.715 14.654 3.698 3.699 1.283 1.282-2.565 2.565-1.282-1.283-5.2-5.199h-6.066l-5.514 5.514-.073.073v2.876a2.418 2.418 0 0 0 2.418 2.418h26.598a2.418 2.418 0 0 0 2.418-2.418v-8.317l-8.463-8.463-7.181 7.181-.071.072Zm-19.347 5.442v4.085a6.045 6.045 0 0 0 6.046 6.045h26.598a6.044 6.044 0 0 0 6.045-6.045v-7.108l1.356-1.355-1.282-1.283-.074-.073v-17.989h-38.689v23.43l-.146.146.146.147Z" clip-rule="evenodd"/></g><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/></g><defs><linearGradient id="a" x1="554.061" x2="-.48" y1=".083" y2=".087" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="b" x1="796.912" x2="404.507" y1="599.963" y2="599.965" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="c" x1="600.792" x2="600.794" y1="403.677" y2="796.082" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="d" x1="404.85" x2="796.972" y1="403.903" y2="796.02" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><clipPath id="e"><path fill="#fff" d="M581.364 580.535h38.689v38.689h-38.689z"/></clipPath></defs></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none" viewBox="0 0 1200 1200">
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="#f8fafc" rx="20"/>
+  
+  <!-- Organic landscape elements -->
+  <g opacity="0.9">
+    <!-- Hills/mountains -->
+    <path fill="#10b981" d="M0 800 Q300 600 600 700 Q900 800 1200 750 L1200 1200 L0 1200 Z"/>
+    <path fill="#059669" d="M0 850 Q400 650 800 750 Q1000 800 1200 780 L1200 1200 L0 1200 Z"/>
+    
+    <!-- Trees -->
+    <circle cx="200" cy="650" r="80" fill="#16a34a"/>
+    <circle cx="180" cy="620" r="60" fill="#15803d"/>
+    <circle cx="220" cy="600" r="50" fill="#166534"/>
+    
+    <circle cx="1000" cy="680" r="70" fill="#16a34a"/>
+    <circle cx="980" cy="650" r="55" fill="#15803d"/>
+    <circle cx="1020" cy="630" r="45" fill="#166534"/>
+    
+    <!-- Water body -->
+    <ellipse cx="600" cy="900" rx="200" ry="80" fill="#0ea5e9" opacity="0.7"/>
+    <ellipse cx="600" cy="900" rx="150" ry="60" fill="#0284c7" opacity="0.8"/>
+    
+    <!-- Sun -->
+    <circle cx="1000" cy="200" r="80" fill="#fbbf24"/>
+    <circle cx="1000" cy="200" r="60" fill="#f59e0b"/>
+    
+    <!-- Clouds -->
+    <ellipse cx="300" cy="150" rx="60" ry="30" fill="#e2e8f0"/>
+    <ellipse cx="350" cy="140" rx="50" ry="25" fill="#cbd5e1"/>
+    <ellipse cx="250" cy="160" rx="40" ry="20" fill="#f1f5f9"/>
+    
+    <!-- Grass patches -->
+    <path fill="#22c55e" d="M100 950 L120 900 L140 950 L160 900 L180 950 L200 900 L220 950 L240 900 L260 950 L280 900 L300 950 L320 900 L340 950 L360 900 L380 950 L400 900 L420 950 L440 900 L460 950 L480 900 L500 950 L520 900 L540 950 L560 950 L580 950 L600 950 L620 950 L640 950 L660 950 L680 950 L700 950 L720 950 L740 950 L760 950 L780 950 L800 950 L820 950 L840 950 L860 950 L880 950 L900 950 L920 950 L940 950 L960 950 L980 950 L1000 950 L1020 950 L1040 950 L1060 950 L1080 950 L1100 950 L1120 950 L1140 950 L1160 950 L1180 950 L1200 950 L1200 1200 L0 1200 Z"/>
+    
+    <!-- Bio-diversity dots -->
+    <circle cx="150" cy="400" r="8" fill="#8b5cf6"/>
+    <circle cx="300" cy="350" r="6" fill="#ec4899"/>
+    <circle cx="450" cy="420" r="10" fill="#f97316"/>
+    <circle cx="600" cy="380" r="7" fill="#06b6d4"/>
+    <circle cx="750" cy="400" r="9" fill="#84cc16"/>
+    <circle cx="900" cy="360" r="8" fill="#ef4444"/>
+    <circle cx="1050" cy="420" r="6" fill="#a855f7"/>
+    
+    <!-- Leaf shapes -->
+    <path fill="#22c55e" d="M400 500 Q420 480 440 500 Q420 520 400 500 Z"/>
+    <path fill="#16a34a" d="M800 480 Q820 460 840 480 Q820 500 800 480 Z"/>
+    <path fill="#15803d" d="M600 450 Q620 430 640 450 Q620 470 600 450 Z"/>
+  </g>
+  
+  <!-- Bioscape text -->
+  <text x="600" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#1e293b">BIOSCAPE</text>
+  <text x="600" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#64748b">Harmonizing Nature & Technology</text>
+</svg>
