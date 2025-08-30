@@ -387,7 +387,7 @@ const CityPlanner = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <ArrowRight className="w-5 h-5" />
-                Repurposing Opportunities
+                Waste Repurposing Requests
               </CardTitle>
               <CardDescription>
                 Companies seeking waste materials
@@ -413,7 +413,7 @@ const CityPlanner = () => {
                 ))}
                 <Button variant="outline" className="w-full mt-4">
                   <ArrowRight className="w-4 h-4 mr-2" />
-                  Post Opportunity
+                  Post request
                 </Button>
               </div>
             </CardContent>
