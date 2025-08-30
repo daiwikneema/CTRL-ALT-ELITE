@@ -42,6 +42,10 @@ interface JobRequest {
 
 const Resident = () => {
   const [showJobForm, setShowJobForm] = useState(false);
+  const [energyShared, setEnergyShared] = useState(284);
+  const [showShareSuccess, setShowShareSuccess] = useState(false);
+  const [creditEarned, setCreditEarned] = useState(4.20);
+  const [sharedButtons, setSharedButtons] = useState<{[key: string]: boolean}>({});
   const [jobRequests, setJobRequests] = useState<JobRequest[]>([
     {
       id: "1",
@@ -103,6 +107,15 @@ const Resident = () => {
     setShowJobForm(false);
   };
 
+  const handleShare = () => {
+    console.log('Share button clicked!'); // Debug log
+    setEnergyShared(energyShared + 1.4); // Add 1.4 kWh for sharing
+    setShowShareSuccess(true);
+    setTimeout(() => setShowShareSuccess(false), 3000); // Hide after 3 seconds
+  };
+
+
+
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "high": return "bg-destructive text-destructive-foreground";
@@ -137,7 +150,7 @@ const Resident = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricCard
             title="Credit Earned Today"
-            value="$4.20"
+            value={`$${creditEarned.toFixed(2)}`}
             subtitle="Sold excess solar power"
             icon={<Zap className="w-4 h-4" />}
             trend="up"
@@ -153,16 +166,6 @@ const Resident = () => {
             trend="up"
             trendValue="+12%"
             variant="accent"
-          />
-          
-          <MetricCard
-            title="Waste Diverted"
-            value="96%"
-            subtitle="From landfill this month"
-            icon={<Recycle className="w-4 h-4" />}
-            trend="up"
-            trendValue="+4%"
-            variant="success"
           />
           
           <MetricCard
@@ -457,8 +460,20 @@ const Resident = () => {
                         <div className="font-medium text-sm">Marrickville Community Center</div>
                         <div className="text-xs text-muted-foreground">Running low on power • 0.8 km away</div>
                       </div>
-                      <Button size="sm" variant="outline" className="text-success border-success/30 hover:bg-success/10">
-                        Share 0.5 kW
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="text-success border-success/30 hover:bg-success/10"
+                        disabled={sharedButtons['0.5']}
+                        onClick={() => {
+                          setEnergyShared(energyShared + 0.5);
+                          setCreditEarned(creditEarned + (0.5 * 0.15)); // $0.15/kWh
+                          setSharedButtons({...sharedButtons, '0.5': true});
+                          setShowShareSuccess(true);
+                          setTimeout(() => setShowShareSuccess(false), 3000);
+                        }}
+                      >
+                        {sharedButtons['0.5'] ? 'Shared ✓' : 'Share 0.5 kW'}
                       </Button>
                     </div>
                     
@@ -467,8 +482,20 @@ const Resident = () => {
                         <div className="font-medium text-sm">Local Cafe - Power Outage</div>
                         <div className="text-xs text-muted-foreground">Emergency backup needed • 1.2 km away</div>
                       </div>
-                      <Button size="sm" variant="outline" className="text-success border-success/30 hover:bg-success/10">
-                        Share 0.9 kW
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="text-success border-success/30 hover:bg-success/10"
+                        disabled={sharedButtons['0.9']}
+                        onClick={() => {
+                          setEnergyShared(energyShared + 0.9);
+                          setCreditEarned(creditEarned + (0.9 * 0.15)); // $0.15/kWh
+                          setSharedButtons({...sharedButtons, '0.9': true});
+                          setShowShareSuccess(true);
+                          setTimeout(() => setShowShareSuccess(false), 3000);
+                        }}
+                      >
+                        {sharedButtons['0.9'] ? 'Shared ✓' : 'Share 0.9 kW'}
                       </Button>
                     </div>
                   </div>
@@ -476,6 +503,18 @@ const Resident = () => {
                   <div className="mt-3 text-xs text-muted-foreground">
                     💡 You can earn $0.15/kWh for shared energy. Total potential today: $0.21
                   </div>
+                  
+                  {showShareSuccess && (
+                    <div className="mt-3 p-3 bg-success/10 border border-success/20 rounded-lg text-center">
+                      <div className="flex items-center justify-center gap-2 text-success">
+                        <CheckCircle className="w-4 h-4" />
+                        <span className="text-sm font-medium">Energy Shared Successfully!</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Your energy has been shared with the community
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>
@@ -573,15 +612,11 @@ const Resident = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Energy Shared</span>
-                  <span className="font-semibold text-accent">284 kWh</span>
+                  <span className="font-semibold text-accent">{energyShared.toFixed(1)} kWh</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Water Conserved</span>
-                  <span className="font-semibold text-secondary">8,400 L</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Waste Diverted</span>
-                  <span className="font-semibold text-primary">96%</span>
+                  <span className="font-semibold text-secondary">8 L</span>
                 </div>
               </div>
 
@@ -589,6 +624,8 @@ const Resident = () => {
                 <Share className="w-4 h-4 mr-2" />
                 Share Impact Report
               </Button>
+              
+
             </CardContent>
           </Card>
         </div>

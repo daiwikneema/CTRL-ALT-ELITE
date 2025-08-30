@@ -17,8 +17,7 @@ import {
   Droplets,
   GraduationCap,
   TrendingUp,
-  Home,
-  Heart
+  Home
 } from "lucide-react";
 
 interface Job {
@@ -445,10 +444,7 @@ const GigWorker = () => {
                                 <DollarSign className="w-3 h-3" />
                                 ${job.budget}
                               </span>
-                              <span className="flex items-center gap-1 text-accent">
-                                <Heart className="w-3 h-3" />
-                                {job.requestedBy}
-                              </span>
+
                             </div>
                             {job.claimedBy && (
                               <div className="mt-2 text-sm text-accent">
