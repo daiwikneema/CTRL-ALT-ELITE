@@ -113,7 +113,7 @@ const CityPlanner = () => {
           <MetricCard
             title="Water Capacity"
             value={stormProtocolActive ? "78%" : "55%"}
-            subtitle="Available stormwater storage"
+            subtitle="Available storage"
             icon={<Droplets className="w-4 h-4" />}
             trend={stormProtocolActive ? "up" : "neutral"}
             trendValue={stormProtocolActive ? "+23%" : "stable"}

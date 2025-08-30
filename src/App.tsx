@@ -24,7 +24,6 @@ const App = () => (
           <Route path="/city-planner" element={<CityPlanner />} />
           <Route path="/gig-worker" element={<GigWorker />} />
           <Route path="/resident" element={<Resident />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
