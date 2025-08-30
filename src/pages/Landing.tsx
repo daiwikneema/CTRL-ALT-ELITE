@@ -53,28 +53,62 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-gradient-surface">
-      <section className="pt-20 pb-3 px-4">
-        <div className="container mx-auto text-center">
+      <section className="pt-20 pb-3 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-accent/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-primary/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/3 w-20 h-20 bg-gradient-secondary/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+        </div>
+        
+        <div className="container mx-auto text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-hero bg-clip-text text-transparent">
+            <div className="mb-6">
+              <div className="inline-block p-2 px-4 bg-gradient-primary/10 border border-primary/20 rounded-full mb-4">
+                <span className="text-sm font-medium text-primary">🌱 Sustainable Future</span>
+              </div>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-hero bg-clip-text text-transparent animate-fade-in">
               Bioscape
             </h1>
-            <p className="text-xl md:text-2xl text-foreground mb-3">
+            <p className="text-xl md:text-2xl text-foreground mb-3 font-medium">
               Ecological Urban Planning
             </p>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Transforming urban infrastructure into sustainable, nature-integrated communities 
               through smart technology and ecological design principles.
             </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-success rounded-full"></div>
+                <span>Smart Grid Technology</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span>Water Management</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span>Community Impact</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 relative">
+        <div className="absolute inset-0 -z-10 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, currentColor 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-6">Integrated Solutions</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl font-bold mb-4">Integrated Solutions</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Three interconnected layers working together to create resilient, 
               efficient, and economically inclusive communities.
             </p>
@@ -82,15 +116,15 @@ const Landing = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => (
-              <Card key={index} className="shadow-card hover:shadow-elevated transition-smooth">
-                <CardHeader className="text-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-primary-foreground" />
+              <Card key={index} className="shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group border-0 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <feature.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  <CardTitle className="text-lg group-hover:text-primary transition-colors">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground text-center">
+                <CardContent className="pt-0">
+                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>
@@ -100,30 +134,35 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Services We Offer */}
-      <section className="py-12 px-4 bg-card/50">
-        <div className="container mx-auto">
+      <section className="py-16 px-4 bg-gradient-to-br from-card/30 to-card/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-6">Services We Offer</h2>
-            <p className="text-lg text-muted-foreground">
+            <div className="inline-block p-2 px-4 bg-gradient-accent/10 border border-accent/20 rounded-full mb-4">
+              <span className="text-sm font-medium text-accent">🚀 Ready to Explore</span>
+            </div>
+            <h2 className="text-3xl font-bold mb-4">Services We Offer</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Experience how Bioscape connects city planners, gig workers, 
               and residents in a unified ecosystem.
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {dashboards.map((dashboard, index) => (
-              <Card key={index} className="shadow-card hover:shadow-elevated transition-smooth group">
-                <CardHeader>
-                  <div className={`w-12 h-12 ${dashboard.color} rounded-lg flex items-center justify-center mb-4`}>
-                    <dashboard.icon className="w-6 h-6 text-white" />
+              <Card key={index} className="shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 group border-0 bg-gradient-to-br from-card to-card/90 backdrop-blur-sm overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <CardHeader className="pb-4">
+                  <div className={`w-16 h-16 ${dashboard.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <dashboard.icon className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle>{dashboard.title}</CardTitle>
-                  <CardDescription>{dashboard.description}</CardDescription>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{dashboard.title}</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">{dashboard.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <Link to={dashboard.href}>
-                    <Button className="w-full group-hover:shadow-glow transition-smooth">
+                    <Button className="w-full group-hover:shadow-glow transition-all duration-300 bg-gradient-primary hover:bg-gradient-primary/90 text-white border-0">
                       Explore Dashboard
                     </Button>
                   </Link>
@@ -133,6 +172,25 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
+      <footer className="py-8 px-4 border-t border-border/20 bg-gradient-to-r from-card/20 to-card/10">
+        <div className="container mx-auto text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">B</span>
+            </div>
+            <span className="text-lg font-semibold text-foreground">Bioscape</span>
+          </div>
+          <p className="text-sm text-muted-foreground mb-4">
+            Building sustainable cities, one community at a time
+          </p>
+          <div className="flex justify-center gap-6 text-xs text-muted-foreground">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>Contact Us</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
