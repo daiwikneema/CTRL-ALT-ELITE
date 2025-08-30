@@ -12,7 +12,10 @@ import {
   AlertTriangle,
   CheckCircle,
   Play,
-  BarChart3
+  BarChart3,
+  Recycle,
+  Building2,
+  ArrowRight
 } from "lucide-react";
 
 const CityPlanner = () => {
@@ -24,6 +27,61 @@ const CityPlanner = () => {
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 5000);
   };
+
+  // Sample waste management data
+  const wasteListings = [
+    {
+      id: 1,
+      company: "Sydney Brewery Co.",
+      wasteType: "Spent Grain",
+      quantity: "2 tons/week",
+      location: "Surry Hills",
+      status: "Available",
+      potentialUse: "Animal feed, compost"
+    },
+    {
+      id: 2,
+      company: "TechCorp Manufacturing",
+      wasteType: "Plastic Scraps",
+      quantity: "500kg/week",
+      location: "Alexandria",
+      status: "Available",
+      potentialUse: "Recycling, 3D printing"
+    },
+    {
+      id: 3,
+      company: "Green Grocer Market",
+      wasteType: "Food Waste",
+      quantity: "300kg/week",
+      location: "Newtown",
+      status: "Available",
+      potentialUse: "Composting, biogas"
+    }
+  ];
+
+  const repurposingOpportunities = [
+    {
+      id: 1,
+      company: "Urban Farm Collective",
+      need: "Organic waste for composting",
+      location: "Marrickville",
+      status: "Seeking"
+    },
+    {
+      id: 2,
+      company: "EcoPlastic Solutions",
+      need: "Plastic waste for recycling",
+      location: "Botany",
+      status: "Seeking"
+    },
+    {
+      id: 3,
+      company: "Local Animal Sanctuary",
+      need: "Food waste for animal feed",
+      location: "Leichhardt",
+      status: "Seeking"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-surface pt-20 pb-8">
@@ -38,30 +96,7 @@ const CityPlanner = () => {
           </p>
         </div>
 
-        {/* Alerts */}
-        <div className="space-y-4 mb-8">
-          {!stormProtocolActive && (
-            <AlertBanner
-              variant="warning"
-              title="STORM WARNING"
-              description="Severe thunderstorm forecast. Predicted flood risk is HIGH. AI recommends activating Storm Prep Protocol to drain water tanks and create 75 emergency maintenance jobs."
-              action={{
-                label: "APPROVE ACTION",
-                onClick: handleStormProtocol
-              }}
-            />
-          )}
-          
-          {showSuccess && (
-            <AlertBanner
-              variant="success"
-              title="Storm Protocol Activated"
-              description="Successfully initiated city-wide storm preparation. Water tanks draining automatically. 75 high-priority jobs created for Service Partners."
-              dismissible
-              onDismiss={() => setShowSuccess(false)}
-            />
-          )}
-        </div>
+
 
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -258,7 +293,7 @@ const CityPlanner = () => {
         </div>
 
         {/* Analytics Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle>Environmental Impact</CardTitle>
@@ -301,6 +336,85 @@ const CityPlanner = () => {
                   <span className="text-sm text-muted-foreground">Community ROI</span>
                   <span className="font-semibold text-success">+18.5%</span>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Waste Management & Repurposing */}
+        <div className="grid lg:grid-cols-2 gap-6 mb-8">
+          {/* Available Waste */}
+          <Card className="shadow-card">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Recycle className="w-5 h-5" />
+                Available Waste
+              </CardTitle>
+              <CardDescription>
+                Companies listing waste for repurposing
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {wasteListings.map((waste) => (
+                  <div key={waste.id} className="border border-border rounded-lg p-3 hover:shadow-sm transition-smooth">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-medium text-foreground">{waste.company}</h4>
+                        <p className="text-sm text-muted-foreground">{waste.wasteType}</p>
+                      </div>
+                      <span className="text-xs bg-success/10 text-success px-2 py-1 rounded-full">
+                        {waste.status}
+                      </span>
+                    </div>
+                    <div className="text-xs text-muted-foreground space-y-1">
+                      <div>Quantity: {waste.quantity}</div>
+                      <div>Location: {waste.location}</div>
+                      <div>Potential Use: {waste.potentialUse}</div>
+                    </div>
+                  </div>
+                ))}
+                <Button variant="outline" className="w-full mt-4">
+                  <Building2 className="w-4 h-4 mr-2" />
+                  List Your Waste
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Repurposing Opportunities */}
+          <Card className="shadow-card">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <ArrowRight className="w-5 h-5" />
+                Repurposing Opportunities
+              </CardTitle>
+              <CardDescription>
+                Companies seeking waste materials
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {repurposingOpportunities.map((opportunity) => (
+                  <div key={opportunity.id} className="border border-border rounded-lg p-3 hover:shadow-sm transition-smooth">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-medium text-foreground">{opportunity.company}</h4>
+                        <p className="text-sm text-muted-foreground">{opportunity.need}</p>
+                      </div>
+                      <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full">
+                        {opportunity.status}
+                      </span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Location: {opportunity.location}
+                    </div>
+                  </div>
+                ))}
+                <Button variant="outline" className="w-full mt-4">
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  Post Opportunity
+                </Button>
               </div>
             </CardContent>
           </Card>
