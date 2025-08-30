@@ -27,7 +27,7 @@ const Resident = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            Welcome back, Sarah
+            Welcome back, Resident
           </h1>
           <p className="text-muted-foreground">
             Your personal sustainability dashboard for Marrickville
