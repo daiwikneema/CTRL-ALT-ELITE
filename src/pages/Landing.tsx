@@ -6,22 +6,22 @@ import { Link } from "react-router-dom";
 const Landing = () => {
   const dashboards = [
     {
-      title: "City Planner Dashboard",
-      description: "Real-time city-wide oversight with AI-powered insights and automated response systems",
+      title: "City Authority Dashboard",
+      description: "Ecological infrastructure planning with environmental impact assessment and green space optimization",
       icon: MapPin,
       href: "/city-planner",
       color: "bg-gradient-primary"
     },
     {
       title: "Gig Worker Platform", 
-      description: "Dynamic job marketplace connecting gig workers with essential infrastructure tasks",
+      description: "Sustainable urban maintenance marketplace for green infrastructure and renewable energy projects",
       icon: Users,
               href: "/gig-worker",
       color: "bg-gradient-secondary"
     },
     {
       title: "Resident Dashboard",
-      description: "Personal utility management with community engagement and impact tracking",
+      description: "Personal sustainability tracking with community green initiatives and environmental impact monitoring",
       icon: BarChart3,
       href: "/resident", 
       color: "bg-gradient-accent"
