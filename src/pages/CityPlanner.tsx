@@ -143,106 +143,119 @@ const CityPlanner = () => {
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-1 gap-6 mb-8">
-          {/* Interactive Map */}
+          {/* Neighborhood Metrics */}
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
-                Sydney Infrastructure Map
+                Neighborhood Performance Metrics
               </CardTitle>
               <CardDescription>
-                Live view of connected infrastructure and ongoing activities
+                Monthly consumption and generation data for government planning and resource allocation
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="relative h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg border border-border overflow-hidden">
-                {/* Dummy Map Image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50">
-                  {/* Sydney Harbor Bridge */}
-                  <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gray-400 rounded-full"></div>
-                  
-                  {/* CBD Area */}
-                  <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-24 h-16 bg-gray-300 rounded-lg flex items-center justify-center">
-                    <span className="text-xs font-medium text-gray-600">CBD</span>
-                  </div>
-                  
-                  {/* Solar Farms */}
-                  <div className="absolute top-1/6 left-1/4 w-8 h-8 bg-yellow-300 rounded-full flex items-center justify-center">
-                    <Zap className="w-4 h-4 text-yellow-600" />
-                  </div>
-                  <div className="absolute top-1/5 right-1/4 w-8 h-8 bg-yellow-300 rounded-full flex items-center justify-center">
-                    <Zap className="w-4 h-4 text-yellow-600" />
-                  </div>
-                  
-                  {/* Water Storage Tanks */}
-                  <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-300 rounded-full flex items-center justify-center">
-                    <Droplets className="w-3 h-3 text-blue-600" />
-                  </div>
-                  <div className="absolute bottom-1/4 right-1/3 w-6 h-6 bg-blue-300 rounded-full flex items-center justify-center">
-                    <Droplets className="w-3 h-3 text-blue-600" />
-                  </div>
-                  
-                  {/* Community Hubs */}
-                  <div className="absolute top-2/3 left-1/4 w-6 h-6 bg-green-300 rounded-full flex items-center justify-center">
-                    <Users className="w-3 h-3 text-green-600" />
-                  </div>
-                  <div className="absolute top-3/4 right-1/4 w-6 h-6 bg-green-300 rounded-full flex items-center justify-center">
-                    <Users className="w-3 h-3 text-green-600" />
-                  </div>
-                  
-                  {/* Storm Prep Indicators */}
-                  {stormProtocolActive && (
-                    <>
-                      <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-warning rounded-full animate-ping"></div>
-                      <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-warning rounded-full animate-ping"></div>
-                      <div className="absolute top-2/3 left-2/3 w-4 h-4 bg-warning rounded-full animate-ping"></div>
-                    </>
-                  )}
-                  
-                  {/* Grid Lines */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="w-full h-px bg-gray-300 absolute top-1/4"></div>
-                    <div className="w-full h-px bg-gray-300 absolute top-1/2"></div>
-                    <div className="w-full h-px bg-gray-300 absolute top-3/4"></div>
-                    <div className="h-full w-px bg-gray-300 absolute left-1/4"></div>
-                    <div className="h-full w-px bg-gray-300 absolute left-1/2"></div>
-                    <div className="h-full w-px bg-gray-300 absolute left-3/4"></div>
-                  </div>
-                </div>
-                
-                {/* Map Legend */}
-                <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
-                      <span>Solar Generation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
-                      <span>Water Storage</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-300 rounded-full"></div>
-                      <span>Community Hubs</span>
-                    </div>
-                    {stormProtocolActive && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
-                        <span>Storm Prep Active</span>
-                      </div>
-                    )}
-                  </div>
+              <div className="space-y-4">
+                {/* Table Header */}
+                <div className="grid grid-cols-4 gap-4 p-3 bg-muted/30 rounded-lg font-medium text-sm">
+                  <div>Neighborhood</div>
+                  <div className="text-center">Water Consumption</div>
+                  <div className="text-center">Energy Consumption</div>
+                  <div className="text-center">Waste Generated</div>
                 </div>
 
-                {/* Status Overlay */}
-                <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-                  <div className="text-sm font-medium text-foreground">Live Status</div>
-                  <div className="text-xs text-muted-foreground">
-                    {stormProtocolActive ? "Storm Protocol Active" : "Normal Operations"}
+                {/* Neighborhood Data */}
+                {[
+                  {
+                    name: "Marrickville",
+                    water: "2,450 L",
+                    energy: "1.8 MWh",
+                    waste: "320 kg",
+                    status: "success"
+                  },
+                  {
+                    name: "Newtown",
+                    water: "1,890 L",
+                    energy: "1.2 MWh",
+                    waste: "280 kg",
+                    status: "success"
+                  },
+                  {
+                    name: "Surry Hills",
+                    water: "3,120 L",
+                    energy: "2.1 MWh",
+                    waste: "410 kg",
+                    status: "warning"
+                  },
+                  {
+                    name: "Glebe",
+                    water: "1,680 L",
+                    energy: "0.9 MWh",
+                    waste: "195 kg",
+                    status: "success"
+                  },
+                  {
+                    name: "Alexandria",
+                    water: "2,890 L",
+                    energy: "1.9 MWh",
+                    waste: "380 kg",
+                    status: "accent"
+                  },
+                  {
+                    name: "Leichhardt",
+                    water: "2,100 L",
+                    energy: "1.4 MWh",
+                    waste: "250 kg",
+                    status: "success"
+                  },
+                  {
+                    name: "CBD",
+                    water: "5,670 L",
+                    energy: "4.2 MWh",
+                    waste: "890 kg",
+                    status: "warning"
+                  },
+                  {
+                    name: "Botany",
+                    water: "1,450 L",
+                    energy: "0.8 MWh",
+                    waste: "180 kg",
+                    status: "success"
+                  }
+                ].map((neighborhood, index) => (
+                  <div key={index} className="grid grid-cols-4 gap-4 p-3 border border-border/50 rounded-lg hover:bg-muted/20 transition-colors">
+                    <div className="font-medium">{neighborhood.name}</div>
+                    <div className="text-center">
+                      <span className="text-secondary font-medium">{neighborhood.water}</span>
+                      <div className="text-xs text-muted-foreground">Monthly avg</div>
+                    </div>
+                    <div className="text-center">
+                      <span className="text-accent font-medium">{neighborhood.energy}</span>
+                      <div className="text-xs text-muted-foreground">Monthly avg</div>
+                    </div>
+                    <div className="text-center">
+                      <span className="text-primary font-medium">{neighborhood.waste}</span>
+                      <div className="text-xs text-muted-foreground">Monthly avg</div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 mt-1">
-                    <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                    <span className="text-xs text-success">Connected</span>
+                ))}
+
+                {/* Summary Stats */}
+                <div className="mt-6 p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border border-primary/20">
+                  <h4 className="font-medium text-foreground mb-3">City-Wide Summary (This Month)</h4>
+                  <div className="grid grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <div className="text-2xl font-bold text-secondary">21,250 L</div>
+                      <div className="text-muted-foreground">Total Water Consumption</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-accent">14.3 MWh</div>
+                      <div className="text-muted-foreground">Total Energy Consumption</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-primary">2,705 kg</div>
+                      <div className="text-muted-foreground">Total Waste Generated</div>
+                    </div>
                   </div>
                 </div>
               </div>
