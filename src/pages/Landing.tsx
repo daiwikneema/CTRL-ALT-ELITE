@@ -173,24 +173,7 @@ const Landing = () => {
         </div>
       </section>
 
-      <footer className="py-8 px-4 border-t border-border/20 bg-gradient-to-r from-card/20 to-card/10">
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">B</span>
-            </div>
-            <span className="text-lg font-semibold text-foreground">Bioscape</span>
-          </div>
-          <p className="text-sm text-muted-foreground mb-4">
-            Building sustainable cities, one community at a time
-          </p>
-          <div className="flex justify-center gap-6 text-xs text-muted-foreground">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
-            <span>Contact Us</span>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };
