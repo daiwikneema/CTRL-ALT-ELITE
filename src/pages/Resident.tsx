@@ -35,8 +35,6 @@ const Resident = () => {
         </div>
 
 
-
-        {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricCard
             title="Energy Earned Today"
@@ -78,7 +76,6 @@ const Resident = () => {
           />
         </div>
 
-        {/* Main Dashboard */}
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
           {/* Home Energy */}
           <Card className="lg:col-span-2 shadow-card">
@@ -93,7 +90,6 @@ const Resident = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                {/* Energy Flow Visualization */}
                 <div className="relative h-40 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-border p-4">
                   <div className="flex items-center justify-between h-full">
                     {/* Solar Panel */}
@@ -105,41 +101,38 @@ const Resident = () => {
                       <div className="text-xs text-muted-foreground">3.2 kW</div>
                     </div>
 
-                    {/* Energy Flow Arrow */}
                     <div className="flex-1 flex items-center justify-center">
                       <div className="w-full h-1 bg-gradient-to-r from-accent to-primary rounded-full relative">
                         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                       </div>
                     </div>
 
-                    {/* Home */}
                     <div className="text-center">
                       <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-2 mx-auto">
                         <Home className="w-6 h-6 text-primary-foreground" />
                       </div>
-                      <div className="text-sm font-medium">Home</div>
+                      <div className="text-sm font-medium">Your Home</div>
                       <div className="text-xs text-muted-foreground">1.8 kW</div>
+                      <div className="text-xs text-success font-medium">Personal Use</div>
                     </div>
 
-                    {/* Grid Export Arrow */}
                     <div className="flex-1 flex items-center justify-center">
                       <div className="w-full h-1 bg-gradient-to-r from-primary to-success rounded-full relative">
                         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-success rounded-full animate-pulse"></div>
                       </div>
                     </div>
 
-                    {/* Grid */}
                     <div className="text-center">
-                      <div className="w-12 h-12 bg-gradient-secondary rounded-lg flex items-center justify-center mb-2 mx-auto">
-                        <TrendingUp className="w-6 h-6 text-secondary-foreground" />
+                      <div className="w-12 h-12 bg-gradient-success rounded-lg flex items-center justify-center mb-2 mx-auto">
+                        <Users className="w-6 h-6 text-success-foreground" />
                       </div>
-                      <div className="text-sm font-medium">Export</div>
-                      <div className="text-xs text-success">+1.4 kW</div>
+                      <div className="text-sm font-medium">Community</div>
+                      <div className="text-xs text-muted-foreground">1.4 kW</div>
+                      <div className="text-xs text-success font-medium">Shared</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Energy Stats */}
                 <div className="grid grid-cols-3 gap-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-accent">3.2</div>
@@ -147,18 +140,50 @@ const Resident = () => {
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary">1.8</div>
-                    <div className="text-xs text-muted-foreground">kW Consumed</div>
+                    <div className="text-xs text-muted-foreground">Personal Use</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-success">$4.20</div>
-                    <div className="text-xs text-muted-foreground">Earned Today</div>
+                    <div className="text-2xl font-bold text-success">1.4</div>
+                    <div className="text-xs text-muted-foreground">Available to Share</div>
+                  </div>
+                </div>
+
+                <div className="border border-border rounded-lg p-4 bg-success/5">
+                  <h4 className="font-medium text-foreground mb-3 flex items-center gap-2">
+                    <Share className="w-4 h-4 text-success" />
+                    Share Your Excess Energy
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-card rounded-lg border border-border/50">
+                      <div>
+                        <div className="font-medium text-sm">Marrickville Community Center</div>
+                        <div className="text-xs text-muted-foreground">Running low on power • 0.8 km away</div>
+                      </div>
+                      <Button size="sm" variant="outline" className="text-success border-success/30 hover:bg-success/10">
+                        Share 0.5 kW
+                      </Button>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 bg-card rounded-lg border border-border/50">
+                      <div>
+                        <div className="font-medium text-sm">Local Cafe - Power Outage</div>
+                        <div className="text-xs text-muted-foreground">Emergency backup needed • 1.2 km away</div>
+                      </div>
+                      <Button size="sm" variant="outline" className="text-success border-success/30 hover:bg-success/10">
+                        Share 0.9 kW
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 text-xs text-muted-foreground">
+                    💡 You can earn $0.15/kWh for shared energy. Total potential today: $0.21
                   </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Quick Actions */}
+
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
@@ -192,7 +217,6 @@ const Resident = () => {
           </Card>
         </div>
 
-        {/* Community & Impact */}
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="shadow-card">
             <CardHeader>
@@ -205,7 +229,6 @@ const Resident = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* Park Project */}
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">New Local Park Project</span>
@@ -217,7 +240,6 @@ const Resident = () => {
                 </p>
               </div>
 
-              {/* Energy Independence */}
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">Energy Independence</span>
@@ -229,7 +251,6 @@ const Resident = () => {
                 </p>
               </div>
 
-              {/* Water Conservation */}
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">Water Conservation Target</span>
