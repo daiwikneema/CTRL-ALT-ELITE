@@ -30,7 +30,7 @@ interface Job {
   status: "available" | "claimed" | "completed";
 }
 
-const ServicePartner = () => {
+const GigWorker = () => {
   const [claimedJobs, setClaimedJobs] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<"list" | "map">("list");
 
@@ -389,29 +389,62 @@ const ServicePartner = () => {
           </Card>
         </div>
 
-        {/* Community Impact */}
+        {/* Contract Opportunities */}
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle>Your Impact This Month</CardTitle>
-              <CardDescription>Contributing to Sydney's sustainability</CardDescription>
+              <CardTitle>Contract Opportunities</CardTitle>
+              <CardDescription>Long-term gig work contracts</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">CO₂ Prevented</span>
-                  <span className="font-semibold text-success">145kg</span>
+                <div className="border border-border rounded-lg p-3 hover:shadow-card transition-smooth">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-medium text-foreground">Lawn Maintenance</h4>
+                    <Badge variant="secondary">8 weeks</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">Weekly lawn mowing and garden maintenance</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-muted-foreground">Location: Enmore Park</span>
+                    <span className="font-semibold text-success">$120/week</span>
+                  </div>
+                  <Button size="sm" className="w-full mt-3">
+                    Apply for Contract
+                  </Button>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Equivalent to Planting</span>
-                  <span className="font-semibold text-primary">3 trees</span>
+
+                <div className="border border-border rounded-lg p-3 hover:shadow-card transition-smooth">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-medium text-foreground">Solar Panel Cleaning</h4>
+                    <Badge variant="secondary">12 weeks</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">Bi-weekly cleaning of residential solar panels</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-muted-foreground">Location: Surry Hills</span>
+                    <span className="font-semibold text-success">$200/visit</span>
+                  </div>
+                  <Button size="sm" className="w-full mt-3">
+                    Apply for Contract
+                  </Button>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Community Rating</span>
-                  <span className="font-semibold text-accent">4.8/5 ★</span>
+
+                <div className="border border-border rounded-lg p-3 hover:shadow-card transition-smooth">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-medium text-foreground">E-bike Fleet Management</h4>
+                    <Badge variant="secondary">Ongoing</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">Daily rebalancing and maintenance of e-bike stations</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-muted-foreground">Location: CBD</span>
+                    <span className="font-semibold text-success">$150/day</span>
+                  </div>
+                  <Button size="sm" className="w-full mt-3">
+                    Apply for Contract
+                  </Button>
                 </div>
+
                 <Button variant="outline" className="w-full mt-4">
-                  Share Impact Report
+                  View All Contracts
                 </Button>
               </div>
             </CardContent>
@@ -451,4 +484,4 @@ const ServicePartner = () => {
   );
 };
 
-export default ServicePartner;
+export default GigWorker;
