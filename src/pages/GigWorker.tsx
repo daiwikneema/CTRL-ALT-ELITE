@@ -181,9 +181,6 @@ const ServicePartner = () => {
                     <MapPin className="w-5 h-5" />
                     Available Jobs
                   </CardTitle>
-                  <CardDescription>
-                    Storm preparation jobs are high priority
-                  </CardDescription>
                 </div>
                 <div className="flex gap-2">
                   <Button 
