@@ -45,9 +45,9 @@ const Landing = () => {
       description: "Community-driven waste reduction and resource recovery"
     },
     {
-      icon: Heart,
-      title: "Community Impact",
-      description: "Measurable environmental and social benefits for all residents"
+      icon: Users,
+      title: "Gig Ecosystem",
+      description: "Connect skilled workers with sustainable urban projects and opportunities"
     }
   ];
 
@@ -82,7 +82,7 @@ const Landing = () => {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span>Smart Grid Technology</span>
+                <span>Waste Repurposing</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full"></div>
@@ -90,7 +90,7 @@ const Landing = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span>Community Impact</span>
+                <span>Gig Economy</span>
               </div>
             </div>
           </div>
