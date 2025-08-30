@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import MetricCard from "@/components/ui/metric-card";
 import AlertBanner from "@/components/ui/alert-banner";
 import { 
@@ -16,10 +20,106 @@ import {
   Users,
   Share,
   Calendar,
-  CheckCircle
+  CheckCircle,
+  Plus,
+  MapPin,
+  Clock,
+  AlertTriangle
 } from "lucide-react";
 
+interface JobRequest {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  category: "maintenance" | "cleaning" | "repair" | "other";
+  priority: "low" | "medium" | "high";
+  budget: number;
+  status: "open" | "claimed" | "completed";
+  createdAt: Date;
+  claimedBy?: string;
+}
+
 const Resident = () => {
+  const [showJobForm, setShowJobForm] = useState(false);
+  const [jobRequests, setJobRequests] = useState<JobRequest[]>([
+    {
+      id: "1",
+      title: "Garden Maintenance Needed",
+      description: "Need help with weeding and pruning in backyard garden",
+      location: "Marrickville",
+      category: "maintenance",
+      priority: "medium",
+      budget: 50,
+      status: "open",
+      createdAt: new Date(Date.now() - 2 * 60 * 60 * 1000) // 2 hours ago
+    },
+    {
+      id: "2",
+      title: "Solar Panel Cleaning",
+      description: "Solar panels need cleaning after recent storm",
+      location: "Marrickville",
+      category: "cleaning",
+      priority: "high",
+      budget: 80,
+      status: "claimed",
+      createdAt: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
+      claimedBy: "Alex M."
+    }
+  ]);
+
+  const [newJob, setNewJob] = useState({
+    title: "",
+    description: "",
+    location: "",
+    category: "maintenance" as const,
+    priority: "medium" as const,
+    budget: ""
+  });
+
+  const handleSubmitJob = (e: React.FormEvent) => {
+    e.preventDefault();
+    const job: JobRequest = {
+      id: Date.now().toString(),
+      title: newJob.title,
+      description: newJob.description,
+      location: newJob.location,
+      category: newJob.category,
+      priority: newJob.priority,
+      budget: parseFloat(newJob.budget),
+      status: "open",
+      createdAt: new Date()
+    };
+    
+    setJobRequests([job, ...jobRequests]);
+    setNewJob({
+      title: "",
+      description: "",
+      location: "",
+      category: "maintenance",
+      priority: "medium",
+      budget: ""
+    });
+    setShowJobForm(false);
+  };
+
+  const getPriorityColor = (priority: string) => {
+    switch (priority) {
+      case "high": return "bg-destructive text-destructive-foreground";
+      case "medium": return "bg-warning text-warning-foreground";
+      case "low": return "bg-muted text-muted-foreground";
+      default: return "bg-muted text-muted-foreground";
+    }
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "open": return "bg-accent text-accent-foreground";
+      case "claimed": return "bg-warning text-warning-foreground";
+      case "completed": return "bg-success text-success-foreground";
+      default: return "bg-muted text-muted-foreground";
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-surface pt-20 pb-8">
@@ -34,10 +134,9 @@ const Resident = () => {
           </p>
         </div>
 
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricCard
-            title="Energy Earned Today"
+            title="Credit Earned Today"
             value="$4.20"
             subtitle="Sold excess solar power"
             icon={<Zap className="w-4 h-4" />}
@@ -74,6 +173,206 @@ const Resident = () => {
             trend="up"
             trendValue="+0.3"
           />
+        </div>
+
+        {/* Job Requests Section */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+          <Card className="lg:col-span-2 shadow-card">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="flex items-center gap-2">
+                    <Users className="w-5 h-5" />
+                    Job Requests
+                  </CardTitle>
+                  <CardDescription>
+                    Request help from gig workers in your community
+                  </CardDescription>
+                </div>
+                <Button 
+                  onClick={() => setShowJobForm(!showJobForm)}
+                  className="shadow-glow"
+                >
+                  <Plus className="w-4 h-4 mr-2" />
+                  New Request
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {showJobForm && (
+                <div className="mb-6 p-4 border border-border rounded-lg bg-card/50">
+                  <h4 className="font-medium mb-4">Create New Job Request</h4>
+                  <form onSubmit={handleSubmitJob} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">Job Title</label>
+                        <Input
+                          placeholder="e.g., Garden Maintenance"
+                          value={newJob.title}
+                          onChange={(e) => setNewJob({...newJob, title: e.target.value})}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">Location</label>
+                        <Input
+                          placeholder="e.g., Marrickville"
+                          value={newJob.location}
+                          onChange={(e) => setNewJob({...newJob, location: e.target.value})}
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Description</label>
+                      <Textarea
+                        placeholder="Describe what you need help with..."
+                        value={newJob.description}
+                        onChange={(e) => setNewJob({...newJob, description: e.target.value})}
+                        required
+                        rows={3}
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">Category</label>
+                        <Select value={newJob.category} onValueChange={(value: any) => setNewJob({...newJob, category: value})}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="maintenance">Maintenance</SelectItem>
+                            <SelectItem value="cleaning">Cleaning</SelectItem>
+                            <SelectItem value="repair">Repair</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">Priority</label>
+                        <Select value={newJob.priority} onValueChange={(value: any) => setNewJob({...newJob, priority: value})}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="low">Low</SelectItem>
+                            <SelectItem value="medium">Medium</SelectItem>
+                            <SelectItem value="high">High</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">Budget ($)</label>
+                        <Input
+                          type="number"
+                          placeholder="50"
+                          value={newJob.budget}
+                          onChange={(e) => setNewJob({...newJob, budget: e.target.value})}
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button type="submit" className="flex-1">
+                        Submit Request
+                      </Button>
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        onClick={() => setShowJobForm(false)}
+                      >
+                        Cancel
+                      </Button>
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              <div className="space-y-4">
+                {jobRequests.map((job) => (
+                  <div key={job.id} className="border border-border rounded-lg p-4 hover:shadow-card transition-smooth">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="font-semibold text-foreground">{job.title}</h3>
+                          <Badge className={getPriorityColor(job.priority)}>
+                            {job.priority}
+                          </Badge>
+                          <Badge className={getStatusColor(job.status)}>
+                            {job.status}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-2">{job.description}</p>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-3 h-3" />
+                            {job.location}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {job.createdAt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                          </span>
+                          <span className="flex items-center gap-1 text-success font-medium">
+                            <DollarSign className="w-3 h-3" />
+                            ${job.budget}
+                          </span>
+                        </div>
+                        {job.claimedBy && (
+                          <div className="mt-2 text-sm text-accent">
+                            <CheckCircle className="w-4 h-4 inline mr-1" />
+                            Claimed by {job.claimedBy}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                
+                {jobRequests.length === 0 && (
+                  <div className="text-center py-8 text-muted-foreground">
+                    <Users className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                    <p>No job requests yet. Create your first request to get help from gig workers!</p>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quick Actions */}
+          <Card className="shadow-card">
+            <CardHeader>
+              <CardTitle>Quick Actions</CardTitle>
+              <CardDescription>
+                Manage your services and bookings
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Button className="w-full justify-start" variant="outline">
+                <Calendar className="w-4 h-4 mr-2" />
+                Book E-Waste Pickup
+              </Button>
+              
+              <Button className="w-full justify-start" variant="outline">
+                <Droplets className="w-4 h-4 mr-2" />
+                Water Usage Report
+              </Button>
+              
+              <Button className="w-full justify-start" variant="outline">
+                <DollarSign className="w-4 h-4 mr-2" />
+                Energy Trading
+              </Button>
+
+              <Button className="w-full justify-start" variant="outline">
+                <Recycle className="w-4 h-4 mr-2" />
+                Recycling Schedule
+              </Button>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
@@ -181,42 +480,10 @@ const Resident = () => {
               </div>
             </CardContent>
           </Card>
-
-
-          <Card className="shadow-card">
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>
-                Manage your services and bookings
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button className="w-full justify-start" variant="outline">
-                <Calendar className="w-4 h-4 mr-2" />
-                Book E-Waste Pickup
-              </Button>
-              
-              <Button className="w-full justify-start" variant="outline">
-                <Droplets className="w-4 h-4 mr-2" />
-                Water Usage Report
-              </Button>
-              
-              <Button className="w-full justify-start" variant="outline">
-                <DollarSign className="w-4 h-4 mr-2" />
-                Energy Trading
-              </Button>
-
-              <Button className="w-full justify-start" variant="outline">
-                <Recycle className="w-4 h-4 mr-2" />
-                Recycling Schedule
-              </Button>
-
-
-            </CardContent>
-          </Card>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
+          {/* Water Management */}
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -279,6 +546,7 @@ const Resident = () => {
             </CardContent>
           </Card>
 
+          {/* My Impact Report */}
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
