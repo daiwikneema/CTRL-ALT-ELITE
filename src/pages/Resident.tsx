@@ -20,7 +20,6 @@ import {
 } from "lucide-react";
 
 const Resident = () => {
-  const [showStormAlert, setShowStormAlert] = useState(true);
 
   return (
     <div className="min-h-screen bg-gradient-surface pt-20 pb-8">
@@ -35,18 +34,7 @@ const Resident = () => {
           </p>
         </div>
 
-        {/* Storm Alert */}
-        {showStormAlert && (
-          <div className="mb-8">
-            <AlertBanner
-              variant="info"
-              title="Storm Prep Underway"
-              description="To help prevent local flooding, your connected rainwater tank will automatically drain to a safe level at 5 PM. You're protected without lifting a finger!"
-              dismissible
-              onDismiss={() => setShowStormAlert(false)}
-            />
-          </div>
-        )}
+
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -199,15 +187,7 @@ const Resident = () => {
                 Recycling Schedule
               </Button>
 
-              <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium">Tank Auto-Drain</span>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Storm preparation active. Your tank will drain automatically at 5 PM.
-                </p>
-              </div>
+
             </CardContent>
           </Card>
         </div>
