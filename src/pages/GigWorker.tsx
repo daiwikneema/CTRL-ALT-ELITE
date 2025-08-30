@@ -362,21 +362,46 @@ const GigWorker = () => {
               </div>
 
               <div className="border-t border-border pt-4">
-                <h4 className="font-medium mb-3">Demand Heatmap</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-sm">
-                    <span>CBD E-bike Rebalancing</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 bg-destructive rounded-full"></div>
-                      <span className="text-destructive">High</span>
+                <h4 className="font-medium mb-3">Advanced Certifications</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="text-sm font-medium text-foreground">Green Infrastructure Specialist</span>
+                      <p className="text-xs text-muted-foreground">Advanced course in sustainable urban systems</p>
                     </div>
+                    <Button variant="outline" size="sm">
+                      Enroll
+                    </Button>
                   </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span>Inner West Maintenance</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 bg-warning rounded-full"></div>
-                      <span className="text-warning">Medium</span>
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="text-sm font-medium text-foreground">Renewable Energy Technician</span>
+                      <p className="text-xs text-muted-foreground">Solar, wind, and battery maintenance</p>
                     </div>
+                    <Button variant="outline" size="sm">
+                      Enroll
+                    </Button>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="text-sm font-medium text-foreground">Smart City IoT Operator</span>
+                      <p className="text-xs text-muted-foreground">Sensor networks and data collection</p>
+                    </div>
+                    <Button variant="outline" size="sm">
+                      Enroll
+                    </Button>
+                  </div>
+                </div>
+                
+                <div className="mt-4 p-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Star className="w-4 h-4 text-warning" />
+                    <span className="text-sm font-medium">Certification Benefits</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground space-y-1">
+                    <div>• 15-25% higher hourly rates</div>
+                    <div>• Priority access to premium contracts</div>
+                    <div>• Exclusive access to specialized projects</div>
                   </div>
                 </div>
               </div>
