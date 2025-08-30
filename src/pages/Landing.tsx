@@ -14,7 +14,7 @@ const Landing = () => {
     },
     {
       title: "Gig Worker Platform", 
-      description: "Sustainable urban maintenance marketplace for green infrastructure and renewable energy projects",
+      description: "A one-stop platform connecting gig workers with contract opportunities, transparent earnings, and skill-building programs, including government-backed certifications and workshops.",
       icon: Users,
               href: "/gig-worker",
       color: "bg-gradient-secondary"
