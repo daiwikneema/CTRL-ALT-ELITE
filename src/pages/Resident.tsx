@@ -92,7 +92,6 @@ const Resident = () => {
               <div className="space-y-6">
                 <div className="relative h-40 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-border p-4">
                   <div className="flex items-center justify-between h-full">
-                    {/* Solar Panel */}
                     <div className="text-center">
                       <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center mb-2 mx-auto">
                         <Zap className="w-6 h-6 text-accent-foreground" />
@@ -221,50 +220,61 @@ const Resident = () => {
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Users className="w-5 h-5" />
-                Community Goals
+                <Droplets className="w-5 h-5" />
+                Water Management
               </CardTitle>
               <CardDescription>
-                Marrickville neighbourhood progress
+                Rainwater harvesting and aquifer recharge
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">New Local Park Project</span>
-                  <span className="text-sm text-success">75%</span>
+                  <span className="text-sm font-medium">Aquifer Recharge Target</span>
+                  <span className="text-sm text-secondary">78%</span>
                 </div>
-                <Progress value={75} className="h-2" />
+                <Progress value={78} className="h-2" />
                 <p className="text-xs text-muted-foreground mt-1">
-                  $18,750 raised through community recycling goals
+                  {340 * 0.78}L of today's harvested rainwater directed to aquifers
                 </p>
               </div>
 
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">Energy Independence</span>
-                  <span className="text-sm text-accent">62%</span>
+                  <span className="text-sm font-medium">Monthly Aquifer Contribution</span>
+                  <span className="text-sm text-accent">2,450L</span>
                 </div>
-                <Progress value={62} className="h-2" />
+                <Progress value={82} className="h-2" />
                 <p className="text-xs text-muted-foreground mt-1">
-                  Local renewable energy generation vs consumption
+                  Target: 3,000L • {Math.round((2450/3000)*100)}% of monthly goal achieved
                 </p>
               </div>
 
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">Water Conservation Target</span>
-                  <span className="text-sm text-secondary">89%</span>
+                  <span className="text-sm font-medium">Community Water Security</span>
+                  <span className="text-sm text-success">91%</span>
                 </div>
-                <Progress value={89} className="h-2" />
+                <Progress value={91} className="h-2" />
                 <p className="text-xs text-muted-foreground mt-1">
-                  Monthly water saving goal almost achieved!
+                  Your contribution helps maintain local water table levels
                 </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 pt-2">
+                <div className="text-center p-3 bg-secondary/10 rounded-lg">
+                  <div className="text-lg font-bold text-secondary">340L</div>
+                  <div className="text-xs text-muted-foreground">Harvested Today</div>
+                </div>
+                <div className="text-center p-3 bg-accent/10 rounded-lg">
+                  <div className="text-lg font-bold text-accent">265L</div>
+                  <div className="text-xs text-muted-foreground">To Aquifers</div>
+                </div>
               </div>
 
               <Button variant="outline" className="w-full">
-                <Users className="w-4 h-4 mr-2" />
-                View All Projects
+                <Droplets className="w-4 h-4 mr-2" />
+                View Water Analytics
               </Button>
             </CardContent>
           </Card>
