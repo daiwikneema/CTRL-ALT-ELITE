@@ -67,15 +67,12 @@ const Landing = () => {
               Transforming Sydney's infrastructure into a responsive, decentralized, and 
               community-powered network through smart technology and local engagement.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link to="/city-planner">
-                <Button size="lg" className="w-full sm:w-auto shadow-glow">
+                <Button size="lg" className="shadow-glow">
                   Explore Platform
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                View Demo Scenario
-              </Button>
             </div>
           </div>
         </div>
